@@ -23,9 +23,11 @@ public class Barrier : MonoBehaviour
             );
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.tag == "Despawner")
+        {
+            Destroy(this);
+        }
     }
 }
