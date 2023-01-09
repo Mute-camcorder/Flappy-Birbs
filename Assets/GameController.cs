@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextBarrierOffset = Random.Range(64, 256);
+        nextBarrierOffset = Random.Range(100, 300);
         updatesSinceLastBarrier = 0;
     }
 
@@ -25,11 +25,7 @@ public class GameController : MonoBehaviour
         updatesSinceLastBarrier++;
         if (updatesSinceLastBarrier >= nextBarrierOffset)
         {
-            Barrier newBarrier = Instantiate(barrierPrefab);
-            newBarrier.transform.SetPositionAndRotation(
-                new Vector3(12f, 0f, 0f),
-                Quaternion.identity
-            );
+            Instantiate(barrierPrefab);
             updatesSinceLastBarrier = 0;
         }
     }
