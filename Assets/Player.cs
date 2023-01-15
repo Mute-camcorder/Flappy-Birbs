@@ -14,17 +14,8 @@ public class Player : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    // Only jump if we aren't moving up considerably
-        //    if (body.velocity.y <= 0.1f) {
-        //        body.AddForce(pushUpSmall);
-        //    }
-        //}
-
         if (Input.GetKeyUp(KeyCode.Space))
         {
             // we need to be falling a little before we can jump again
@@ -33,5 +24,12 @@ public class Player : MonoBehaviour
                 body.AddForce(pushUpBig);
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector2 dir = body.velocity;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
