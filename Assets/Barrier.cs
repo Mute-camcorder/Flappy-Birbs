@@ -27,7 +27,7 @@ public class Barrier : MonoBehaviour
     {
         if (other.tag == "Despawner")
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
