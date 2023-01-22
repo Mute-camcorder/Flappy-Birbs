@@ -28,8 +28,11 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 dir = body.velocity;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        // The Player isn't actually moving, but instead the barriers and background move
+        // so to calculate the beak angle we need to add in some rightwards motion
+        Vector2 apparentDirection = body.velocity + Vector2.right;
+        float angle = Mathf.Atan2(apparentDirection.y, apparentDirection.x) * Mathf.Rad2Deg;
+        angle = Mathf.Clamp(angle, -30f, 40f);
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 }
