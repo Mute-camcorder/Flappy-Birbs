@@ -18,11 +18,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            // we need to be falling a little before we can jump again
-            if (body.velocity.y <= -0.25f)
-            {
-                body.AddForce(pushUpBig);
-            }
+            //// we need to be falling a little before we can jump again
+            //if (body.velocity.y <= -1f)
+            //{
+            //    body.AddForce(pushUpBig);
+            //}
+            body.AddForce(pushUpBig);
         }
     }
 
@@ -34,5 +35,20 @@ public class Player : MonoBehaviour
         float angle = Mathf.Atan2(apparentDirection.y, apparentDirection.x) * Mathf.Rad2Deg;
         angle = Mathf.Clamp(angle, -30f, 40f);
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Barrier"))
+        {
+            Debug.Log(collision);
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player Died");
+        // Destroy(body);
     }
 }

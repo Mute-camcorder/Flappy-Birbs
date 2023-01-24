@@ -14,9 +14,9 @@ public class ScoreCounter : MonoBehaviour
         scoreboard.SetText(score.ToString());
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.tag == "Barrier")
+        if (collision.CompareTag("Barrier"))
         {
             score++;
             scoreboard.SetText(score.ToString());

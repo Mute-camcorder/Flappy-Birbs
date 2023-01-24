@@ -20,12 +20,12 @@ public class Barrier : MonoBehaviour
         transform.SetPositionAndRotation(
                 new Vector3(12f, offsetSigned, 0f),
                 Quaternion.Euler(0f, 0f, rotation)
-            );
+        );
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.tag == "Despawner")
+        if (collision.CompareTag("Despawner"))
         {
             Destroy(this.gameObject);
         }

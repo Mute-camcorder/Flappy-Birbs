@@ -25,7 +25,11 @@ public class GameController : MonoBehaviour
         updatesSinceLastBarrier++;
         if (updatesSinceLastBarrier >= nextBarrierOffset)
         {
-            Instantiate(barrierPrefab);
+            Instantiate(
+                barrierPrefab,
+                position: new Vector3(-20, 0, 0),
+                rotation: Quaternion.identity
+            );
             updatesSinceLastBarrier = 0;
         }
     }
