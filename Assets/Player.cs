@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Interactions;
 
 public class Player : MonoBehaviour
 {
@@ -12,19 +13,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            //// we need to be falling a little before we can jump again
-            //if (body.velocity.y <= -1f)
-            //{
-            //    body.AddForce(pushUpBig);
-            //}
-            body.AddForce(pushUpBig);
-        }
     }
 
     private void FixedUpdate()
@@ -50,5 +38,11 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player Died");
         // Destroy(body);
+    }
+
+    private void OnJump()
+    {
+        Debug.Log("Jump!");
+        body.AddForce(pushUpBig);
     }
 }
