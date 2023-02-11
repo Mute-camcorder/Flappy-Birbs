@@ -5,14 +5,15 @@ using UnityEngine.InputSystem.Interactions;
 
 public class Player : MonoBehaviour
 {
+    public GameController gameController;
     private Rigidbody2D body;
     private Vector2 pushUpSmall = new Vector2(0f, 1f);
     private Vector2 pushUpBig = new Vector2(0f, 5f);
 
-    // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        gameController = GameObject.FindObjectOfType<GameController>();
     }
 
     private void FixedUpdate()
@@ -37,7 +38,8 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player Died");
-        // Destroy(body);
+        Debug.Break();
+        //gameController.Restart();
     }
 
     private void OnJump()
