@@ -38,8 +38,9 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player Died");
-        Debug.Break();
-        //gameController.Restart();
+        var birbBody = GetComponent<Rigidbody2D>();
+        birbBody.simulated = false;
+        gameController.GameOver();
     }
 
     private void OnJump()

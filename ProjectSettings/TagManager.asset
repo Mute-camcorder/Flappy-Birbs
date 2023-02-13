@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Barrier
   - Despawner
+  - GameOver
   layers:
   - Default
   - TransparentFX

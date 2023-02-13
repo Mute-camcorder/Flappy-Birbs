@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public Barrier barrierPrefab;
+    public GameObject gameOverScreen;
     private int barrierSpawnDelay = 4;
     private float timer = 0.0f;
     private int score;
@@ -20,7 +21,6 @@ public class GameController : MonoBehaviour
         timer = float.MaxValue;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (timer >= barrierSpawnDelay)
@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
-        Restart();
+        gameOverScreen.SetActive(true);
     }
 
     [ContextMenu("Restart")]
