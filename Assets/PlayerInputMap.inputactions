@@ -1,5 +1,5 @@
 {
-    "name": "PlayerJump",
+    "name": "PlayerInputMap",
     "maps": [
         {
             "name": "Player",
@@ -437,6 +437,17 @@
                     "name": "",
                     "id": "9e92bb26-7e3b-4ec4-b06b-3c8f8e498ddc",
                     "path": "*/{Submit}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aef40e18-1c9a-4b5c-8383-2e717185f3ef",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
